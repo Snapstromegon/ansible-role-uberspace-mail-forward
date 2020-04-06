@@ -1,0 +1,3 @@
+- name: Update User Forwards
+  include_tasks: update_user_forward.yml
+  loop: "{{ forwards + ([{'user': user, 'address': address, 'state': state}] if user else []) }}"

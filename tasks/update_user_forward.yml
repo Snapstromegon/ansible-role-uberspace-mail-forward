@@ -1,0 +1,17 @@
+- name: Read existing forward
+  command: "uberspace mail forward list {{ item.user }}"
+  register: uberspace_mail_forward_result
+  failed_when: uberspace_mail_forward_result.rc != 0
+  changed_when: false
+
+- name: Set forward
+  when:
+    - item.address not in uberspace_mail_forward_result.stdout_lines
+    - state == "present"
+  command: "uberspace mail forward set {{ item.user }} {{ item.address }}"
+    
+- name: Delete forward
+  when:
+    - state == "absent"
+  command: "uberspace mail forward del {{ item.user }}"
+    
