@@ -1,0 +1,20 @@
+galaxy_info:
+  role_name: uberspace-mail-forward
+  author: Raphael Höser
+  description: Configure mail forwarding on your uberspace
+
+  license: ISC
+
+  min_ansible_version: 2.5
+
+  platforms:
+  - name: Uberspace
+    versions:
+    - 7
+
+  galaxy_tags:
+    - uberspace
+    - mail
+    - forwarding
+
+dependencies: []
